@@ -1,0 +1,126 @@
+@import "../../app.scss";
+
+.navbar {
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  
+  z-index: 999;
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+
+  &.scrolled {
+    background-color: var(--main-color);
+  }
+
+//------------------------
+  .container {
+    padding:  20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+    // @media only screen and (max-width:767px){
+    //   padding:0 20px;
+    // } 
+    
+    }
+    //--------------------------------------------
+  
+        .left {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 30px;
+        border-radius: 5px;
+        object-fit: cover;
+        cursor: pointer;
+        margin-right: 8px;
+
+        @include mobile {
+          display: none;
+        }
+      }
+      .link:hover{
+        text-decoration: underline;
+
+      }
+      span {
+        font-weight: bolder;
+        margin-right: 20px;
+        cursor: pointer;
+       
+
+        @include tablet {
+          display: none;
+        }
+
+        &.navbarmainLinks {
+        font-size: 15px;
+          @include tablet {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        margin: 0px 15px;
+        cursor: pointer;
+      }
+      
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      .profile {
+      margin-right: -10px;
+         cursor: pointer;
+        .options {
+          display: none;
+          background-color: var(--main-color);
+          border-radius: 5px;
+        }
+
+        span {
+          padding: 4px;
+          cursor: pointer;
+          margin-right: 3px;
+        }
+
+        &:hover {
+          .options {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            padding-top:5px
+          }
+        }
+      }
+    }
+    .menu_container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        img{
+          height: 30px;
+          border-radius: 5px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+    }
+  }
+  
+  
+//-----------------------
+

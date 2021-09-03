@@ -1,0 +1,31 @@
+main {
+    display: flex;
+  }
+  
+  aside {
+    background-color:#0b0b0b;
+    width: 18.75rem;
+    height: 100vh;
+  }
+  
+  .nav-container {
+    margin: 2.5rem 1.4rem;
+  }
+  
+  .nav-container p a {
+    color: #f9fafb;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .nav-container p:hover {
+      background-color:rgb(50, 50, 95) ;
+      padding: 0 5px;
+  }
+
+  
+  .menu {
+    cursor: pointer;
+    margin: 1.25rem;
+   
+  }
