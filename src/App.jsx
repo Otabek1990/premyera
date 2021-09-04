@@ -9,6 +9,7 @@ import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import {
   BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route,
   Redirect,
@@ -18,10 +19,10 @@ import { AuthContext } from "./authContext/AuthContext";
 
 function App(){
   const { user } = useContext(AuthContext);
-  console.log(user)
 
   return (
-    <Router>
+    <div>
+    <HashRouter >
       <Switch>
             <Route exact path="/">
               <Home  />
@@ -52,49 +53,51 @@ function App(){
             </Route>
       
       </Switch>
-    </Router>
-    // <Router>
-    //   <Switch>
-    //     <Route exact path="/">
-    //       {user ? <Home /> : <Redirect to="/register" />}
-    //     </Route>
-    //     {/* <Route path="/register">
-    //       {!user ? <Register /> : <Redirect to="/" />}
-    //     </Route> */}
-    //     {/* <Route path="/login">
-    //       {!user ? <Login /> : <Redirect to="/" />}
-    //       </Route> */}
-    //     {user && (
-    //       <>
-    //         <Route path="/movies">
-    //           <Home type="movie" />
-    //         </Route>
-    //         <Route path="/series">
-    //           <Home type="series" />
-    //         </Route>
-    //         <Route path="/details">
-    //           <MovieDetails />
-    //         </Route>
-    //         <Route path="/login">
-    //           <Login />
-    //         </Route>
-    //         <Route path="/register">
-    //           <Register />
-    //         </Route>
-    //         <Route path="/termsOfUse">
-    //           <Terms />
-    //         </Route>
-    //         <Route path="/Payment">
-    //           <Payment />
-    //         </Route>
-    //         <Route path="/watch">
-    //           <Watch />
-    //         </Route>
-    //       </>
-    //     )}
-    //   </Switch>
-    // </Router>
+    </HashRouter>
+    </div>
   );
 };
 
 export default App;
+
+    // {/* // <Router>
+    // //   <Switch>
+    // //     <Route exact path="/">
+    // //       {user ? <Home /> : <Redirect to="/register" />}
+    // //     </Route>
+    // //     {/* <Route path="/register">
+    // //       {!user ? <Register /> : <Redirect to="/" />}
+    // //     </Route> */}
+    // //     {/* <Route path="/login">
+    // //       {!user ? <Login /> : <Redirect to="/" />}
+    // //       </Route> */}
+    //      {user && (
+    // //       <> */}
+    // //         <Route path="/movies">
+    // //           <Home type="movie" />
+    // //         </Route>
+    // //         <Route path="/series">
+    // //           <Home type="series" />
+    // //         </Route>
+    // //         <Route path="/details">
+    // //           <MovieDetails />
+    // //         </Route>
+    // //         <Route path="/login">
+    // //           <Login />
+    // //         </Route>
+    // //         <Route path="/register">
+    // //           <Register />
+    // //         </Route>
+    // //         <Route path="/termsOfUse">
+    // //           <Terms />
+    // //         </Route>
+    // //         <Route path="/Payment">
+    // //           <Payment />
+    // //         </Route>
+    // //         <Route path="/watch">
+    // //           <Watch />
+    // //         </Route>
+    // //       </>
+    // //     )}
+    // //   </Switch>
+    // // </Router>
