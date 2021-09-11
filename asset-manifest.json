@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/premyera/static/css/main.3d2ce883.chunk.css",
-    "main.js": "/premyera/static/js/main.e84d8a48.chunk.js",
-    "main.js.map": "/premyera/static/js/main.e84d8a48.chunk.js.map",
+    "main.js": "/premyera/static/js/main.7e9514a5.chunk.js",
+    "main.js.map": "/premyera/static/js/main.7e9514a5.chunk.js.map",
     "runtime-main.js": "/premyera/static/js/runtime-main.74efa14e.js",
     "runtime-main.js.map": "/premyera/static/js/runtime-main.74efa14e.js.map",
     "static/css/2.93dafd80.chunk.css": "/premyera/static/css/2.93dafd80.chunk.css",
@@ -44,6 +44,6 @@
     "static/css/2.93dafd80.chunk.css",
     "static/js/2.2531ca97.chunk.js",
     "static/css/main.3d2ce883.chunk.css",
-    "static/js/main.e84d8a48.chunk.js"
+    "static/js/main.7e9514a5.chunk.js"
   ]
 }
