@@ -54,7 +54,7 @@ console.log(filteredMovie)
 //       autoplay: 1,
 //     },
 //   };
-const userr="ok"
+const userr=""
   return (
       <div >
           <Navbar className="movie_navbar"/>
