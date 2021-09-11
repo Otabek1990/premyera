@@ -5,10 +5,10 @@ import "./featured.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 //import { Carousel } from 'react-responsive-carousel';
 import { Carousel } from "react-bootstrap";
-import Kino1 from "../../assets/images/kino5.jpg"
-import Kino2 from "../../assets/images/kino2.jpg"
-import Kino3 from "../../assets/images/kino3.jpg"
-
+import Kino1 from "../../assets/images/uzbekkino/rangsiztushlar.jpg";
+import Kino2 from "../../assets/images/kino2.jpg";
+import Kino3 from "../../assets/images/kino3.jpg";
+import Kino4 from "../../assets/images/kino5.jpg";
 
 export default function Featured({ type, setGenre }) {
   // const [content, setContent] = useState({});
@@ -33,7 +33,7 @@ export default function Featured({ type, setGenre }) {
   return (
     <div className="banner">
       <Carousel nextLabel="" prevLabel="" fade={true} pause={false}>
-        <Carousel.Item interval={5000}>
+        <Carousel.Item interval={3000}>
           <img className="d-block w-100" src={Kino1} alt="First slide" />
           {/* <Carousel.Caption>
             <div className="buttons">
@@ -46,7 +46,7 @@ export default function Featured({ type, setGenre }) {
             </div>
           </Carousel.Caption> */}
         </Carousel.Item>
-        <Carousel.Item interval={5000}>
+        <Carousel.Item interval={3000}>
           <img className="d-block w-100" src={Kino2} alt="Second slide" />
           {/* <Carousel.Caption  >
             <div className="buttons">
@@ -59,9 +59,11 @@ export default function Featured({ type, setGenre }) {
             </div>
           </Carousel.Caption> */}
         </Carousel.Item>
-        <Carousel.Item interval={5000}>
+        <Carousel.Item interval={3000}>
           <img className="d-block w-100" src={Kino3} alt="Third slide" />
-  
+        </Carousel.Item>
+        <Carousel.Item interval={3000}>
+          <img className="d-block w-100" src={Kino4} alt="Fourth slide" />
         </Carousel.Item>
       </Carousel>
       {/* <Carousel 

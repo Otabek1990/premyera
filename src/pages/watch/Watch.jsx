@@ -18,7 +18,7 @@ export default function Watch() {
 
 <iframe
  src="https://player.vdocipher.com/playerAssets/1.x/vdo/embed/index.html#otp=20160313versASE323loduHtOG3YWFDML8jWTDCFvSE1h19H9uK8ee3W7xSLsbLw&playbackInfo=eyJ2aWRlb0lkIjoiNDMyODliZGQxZGEzNGI3OTk1MzczNmI3NzhhYTU3MmEifQ==" 
- style={{border:"0",maxWidth:"100%",position:"absolute",top:"40px",left:"0",height:"90%",width:"100%"}} allowFullScreen="true" allow="encrypted-media">
+ style={{border:"0",maxWidth:"100%",position:"absolute",top:"100px",left:"0",height:"90%",width:"100%"}} allowFullScreen="true" allow="encrypted-media">
 
 </iframe>
 </div>

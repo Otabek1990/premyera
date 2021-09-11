@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Kino1 from "../../assets/images/kino5.jpg"
+import Kino2 from "../../assets/images/kino2.jpg"
+import Kino3 from "../../assets/images/kino3.jpg"
 import Video1 from "../../assets/videos/bunny.mp4"
 
 
@@ -16,7 +18,6 @@ export default function ListItem({index,item}) {
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredd, setIsHoveredd] = useState(false);
   const [movie, setMovie] = useState({});
-
   // useEffect(() => {
   //   // const getMovie = async () => {
   //   //   try {
@@ -36,17 +37,23 @@ export default function ListItem({index,item}) {
 
   return (
     // <Link to={{ pathname: "/details", movie: movie }}>
-    <Link to="/details">
+    <Link to={`/${item.type}/${item.title}`}>
       <div
         className="listItem"
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
         // onMouseEnter={() => setIsHovered(true)}
         // onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={Kino1} alt="" />
+        {/* {items.map(item=>(
+          <img src={item.foto} alt=""/>
+        ))} */}
+       <img src={item.foto} alt=""/>
+ 
         {/* <img src={movie?.imgSm} alt="" /> */}
      
       </div>
+      <p> {item.title}</p>
+
     </Link>
   );
 }

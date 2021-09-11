@@ -5,45 +5,52 @@ import "./home.scss";
 import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
+  const uzbMovies = useSelector((state) => state.uzbekMovies.uzbMovies);
+  const uzbSerials = useSelector((state) => state.uzbekSerials.uzbSerials);
+  const kidsMovies = useSelector((state) => state.kidsMovies.kidsMovies);
+  const foreignMovies = useSelector(
+    (state) => state.foreignMovies.foreignMovies
+  );
+  const uzbKonserts = useSelector((state) => state.uzbKonserts.uzbKonserts);
 
-  useEffect(() => {
-    const getRandomLists = async () => {
-      try {
-        const res = await axios.get(
-          `lists${type ? "?type=" + type : ""}${
-            genre ? "&genre=" + genre : ""
-          }`,
-          {
-            headers: {
-              token:
-              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
-        );
-        setLists(res.data);
-        console.log(res.data)
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getRandomLists();
-  }, [type, genre]);
+  // useEffect(() => {
+  //   const getRandomLists = async () => {
+  //     try {
+  //       const res = await axios.get(
+  //         `lists${type ? "?type=" + type : ""}${
+  //           genre ? "&genre=" + genre : ""
+  //         }`,
+  //         {
+  //           headers: {
+  //             token:
+  //             "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+  //           },
+  //         }
+  //       );
+  //       setLists(res.data);
+  //       console.log(res.data)
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getRandomLists();
+  // }, [type, genre]);
   return (
     <div className="home">
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
-      <List list={{title:"1-list"}}/>
-      <List list={{title:"2-list"}}/>
-      <List list={{title:"3-list"}}/>
-  
-      {/* {lists.map((list) => (
-        <List list={list} />
-      ))} */}
-      <Footer/>
+      <List genre={"Uzbekcha filmlar"} items={uzbMovies} />
+      <List genre={"Uzbekcha seriallar"} items={uzbSerials} />
+      <List genre={"Bollar uchun filmlar"} items={kidsMovies} />
+      <List genre={"Chet el seriallari"} items={foreignMovies} />
+      <List genre={"Konsertlar"} items={uzbKonserts} />
+
+      <Footer />
     </div>
   );
 };

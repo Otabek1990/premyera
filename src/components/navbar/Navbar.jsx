@@ -20,7 +20,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
   const [screenSize, setScreenSize] = useState(window.innerWidth < 700);
-
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClose = () => {
@@ -66,6 +65,7 @@ const Navbar = () => {
               <Link to="/watch" className="link">
                 <span className="navbarmainLinks">Tomosha qilish</span>
               </Link>
+             
             </div>
           </div>
           <div className="right">

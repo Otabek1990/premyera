@@ -2,6 +2,11 @@ import "./app.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./pages/home/Home";
 import MovieDetails from "./pages/movieDetails/MovieDetails";
+import UzbekFilms from "./pages/uzbekFilms/UzbekFilms";
+import UzbekSerials from "./pages/uzbekSerials/UzbekSerials";
+import KidFilms from "./pages/kidFilms/KidFilms";
+import ChetelFilms from "./pages/chetelFilms/ChetelFilms";
+import Konserts from "./pages/konserts/Konserts";
 import Register from "./pages/register/Register";
 import Terms from "./pages/terms/Terms";
 import Payment from "./pages/payment/Payment";
@@ -33,9 +38,6 @@ function App(){
             <Route exact path="/series">
               <Home type="series" />
             </Route>
-            <Route exact path="/details">
-              <MovieDetails />
-            </Route>
             <Route exact path="/login">
               <Login />
             </Route>
@@ -45,12 +47,32 @@ function App(){
             <Route exact path="/termsOfUse">
               <Terms />
             </Route>
-            <Route exact path="/Payment">
+            <Route exact path="/payment">
               <Payment />
             </Route>
             <Route exact path="/watch">
               <Watch />
             </Route>
+            <Route exact path="/:type/:title">
+              <MovieDetails/>
+            </Route>
+            <Route exact path="/uzbekFilms/:title">
+              <UzbekFilms/>
+            </Route>
+            <Route exact path="/uzbekSerials/:title">
+              <UzbekSerials/>
+            </Route>
+            <Route exact path="/kidFilms/:title">
+              <KidFilms/>
+            </Route>
+            <Route exact path="/chetelFilms/:title">
+              <ChetelFilms/>
+            </Route>
+            <Route exact path="/konserts/:title">
+              <Konserts/>
+            </Route>
+           
+           
       
       </Switch>
     </HashRouter>

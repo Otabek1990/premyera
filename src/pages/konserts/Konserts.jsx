@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "./movieDetails.scss";
+import "./konserts.scss";
 import { useParams, useHistory,Link } from "react-router-dom";
 //import axios from "../axios";
 import Navbar from "../../components/navbar/Navbar";
@@ -14,24 +14,12 @@ export default function Movie() {
   const [trailerURL, setTrailerURL] = useState("");
   const [showMovie, setShowMovie] = useState(false);
 const {title,type}=useParams()
-const uzbMovies = useSelector((state) => state.uzbekMovies.uzbMovies);
-const uzbSerials = useSelector((state) => state.uzbekSerials.uzbSerials);
-const kidsMovies = useSelector((state) => state.kidsMovies.kidsMovies);
-const foreignMovies = useSelector((state) => state.foreignMovies.foreignMovies);
-const uzbKonserts = useSelector((state) => state.uzbKonserts.uzbKonserts);
-
-const Movie=type==="uzbKino" ? uzbMovies:
-type==="uzbSerial" ? uzbSerials:
- type==="bolalar" ? kidsMovies:
- type==="chetel" ? foreignMovies:
-type==="uzbKonsert" ? uzbKonserts:[];
-const history = useHistory();
-const filteredMovie=  Movie?.filter(item=>item.title===title)
-console.log(Movie)
-console.log(filteredMovie)
+console.log(title,type)
+//   const { id } = useParams();
+  const history = useHistory();
 //   const { state } = useContext(MovieContext);
 //   const { movies } = state;
-  //const base_image_URL = "https://image.tmdb.org/t/p/original/";
+  const base_image_URL = "https://image.tmdb.org/t/p/original/";
 
 //   const filterMovie = movies?.filter((movie) => movie.id === parseInt(id));
 //   //-------------------------------
@@ -54,33 +42,48 @@ console.log(filteredMovie)
 //       autoplay: 1,
 //     },
 //   };
-const userr="ok"
+const userr=""
   return (
       <div >
           <Navbar className="movie_navbar"/>
     <div className="movie_page">
-       {filteredMovie?.map((movie) => ( 
+      {/* {filterMovie?.map((movie) => ( */}
         <div >
-    
+       
+          {/* <h1 key={movie.id} >
+            {movie.title || movie.name || movie.original_title}
+          </h1> */}
+
           <div className="movie_info">
             <img
               className="movie_poster_img"
-              src={movie.foto}
+              src={Poster}
               alt=""
             />
+            {/* <img
+              className="movie_poster_img"
+              key={movie.id}
+              src={`${base_image_URL}${movie.poster_path}`}
+              alt={movie.title}
+            /> */}
             <div className="movie_description">
               <p>
-                
-                <span>Movie title:{movie.title}</span>
+                {" "}
+                Name:{" "}
+                <span>Movie title</span>
+                {/* <span>{movie.title || movie.name || movie.original_title}</span> */}
               </p>
               <p>
                 Release date: <span>22.22.1990</span>
+                {/* Release date: <span>{movie.release_date}</span> */}
               </p>
               <p>
                 Vote average: <span> vote average 9.9</span>
+                {/* Vote average: <span> {movie.vote_average}</span> */}
               </p>
               <p>
-                Overview: <span>Film haqida</span>
+                Overview: <span>Film haqida</span>{" "}
+                {/* Overview: <span>{movie.overview}</span>{" "} */}
               </p>
               <div className="btns">
               <button
@@ -89,13 +92,15 @@ const userr="ok"
               onClick={() => setShowMovie(true)}
               >
                    Watch Trailer</button>
-     <Link to={userr ? "/payment":"/login"}>
+     
               <button 
               className="btn"
-             
+              onClick={()=>{
+                const path=userr ? "payment":"login";
+                history.push(path)
+              }}
               >Watch full movie
               </button>
-              </Link>
               <br/>
              
               </div>
@@ -103,7 +108,7 @@ const userr="ok"
             </div>
           </div>
         </div>
-     ))} 
+      {/* ))} */}
       { showMovie &&
       <div className="trailer">
         <h1>Trailer</h1>
