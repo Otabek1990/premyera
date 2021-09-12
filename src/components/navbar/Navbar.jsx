@@ -85,7 +85,8 @@ const Navbar = () => {
         <div
         className="menu_container">
           <Navigation />
-          <Link to="/" className="link" style={{ margin: " 20px 10px" }}>
+          <Link to="/" className="link"
+           style={{ margin: "10px" }}>
             <img src={Logo} alt="" />
           </Link>
         </div>
