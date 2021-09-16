@@ -88,7 +88,7 @@ export default function Movie() {
             Film Nomi:<span>{movie.title}</span>
             </p>
             <p>
-            Film Janri:<span> Jangari</span>
+            Film Janri:<span> Tarixiy</span>
             </p>
 
             <p>
