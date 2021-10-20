@@ -34,7 +34,8 @@ export default function Featured({ type, setGenre }) {
     <div className="banner">
       <Carousel nextLabel="" prevLabel="" fade={true} pause={false}>
         <Carousel.Item interval={3000}>
-          <img className="d-block w-100" src={Kino1} alt="First slide" />
+          <img style={{height:"400px"}}
+          className="d-block w-90" src={Kino1} alt="First slide" />
           {/* <Carousel.Caption>
             <div className="buttons">
               <button className="button">
@@ -47,7 +48,9 @@ export default function Featured({ type, setGenre }) {
           </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item interval={3000}>
-          <img className="d-block w-100" src={Kino2} alt="Second slide" />
+          <img 
+          style={{height:"400px"}}
+          className="d-block w-100" src={Kino2} alt="Second slide" />
           {/* <Carousel.Caption  >
             <div className="buttons">
             <button className="button">
@@ -60,10 +63,14 @@ export default function Featured({ type, setGenre }) {
           </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item interval={3000}>
-          <img className="d-block w-100" src={Kino3} alt="Third slide" />
+          <img 
+          style={{height:"400px"}}
+          className="d-block w-100" src={Kino3} alt="Third slide" />
         </Carousel.Item>
         <Carousel.Item interval={3000}>
-          <img className="d-block w-100" src={Kino4} alt="Fourth slide" />
+          <img 
+          style={{height:"400px"}}
+          className="d-block w-100" src={Kino4} alt="Fourth slide" />
         </Carousel.Item>
       </Carousel>
       {/* <Carousel 
@@ -88,7 +95,7 @@ export default function Featured({ type, setGenre }) {
     //   <div className="banner"
     //  style={{backgroundImage:
     // `url("${base_image_URL}${movie?.backdrop_path}")`
-    //   backgroundSize:"cover",height:"448px",
+    //   backgroundSize:"cover",height:"400px",
     //   backgroundPosition:"center center"}}>
 
     //       <div className="info">

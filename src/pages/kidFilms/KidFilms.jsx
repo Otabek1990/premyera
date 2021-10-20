@@ -5,7 +5,7 @@ import { useParams, useHistory,Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import YouTube from "react-youtube";
-import movieTrailer from "movie-trailer";
+// import movieTrailer from "movie-trailer";
 import Poster from "../../assets/images/kino3.jpg";
 import Video from "../../assets/videos/bunny.mp4";
 import { useSelector } from "react-redux";

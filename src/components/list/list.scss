@@ -2,12 +2,13 @@
   width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
+  padding-left: 50px;
 
   .listTitle {
     color: white;
     font-size: 20px;
     font-weight: 500;
-    margin-left: 50px;
+    margin-left: 28px;
   }
 
   .wrapper {
@@ -38,6 +39,7 @@
       display: flex;
       margin-top: 10px;
       margin-bottom: 10px;
+      margin-left: 10px;
       width: max-content;
       transform: translateX(0px);
       transition: all 1s ease;
