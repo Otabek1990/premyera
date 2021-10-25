@@ -1,120 +1,137 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import "./featured.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-//import { Carousel } from 'react-responsive-carousel';
-import { Carousel } from "react-bootstrap";
-import Kino1 from "../../assets/images/uzbekkino/rangsiztushlar.jpg";
-import Kino2 from "../../assets/images/kino2.jpg";
-import Kino3 from "../../assets/images/kino3.jpg";
-import Kino4 from "../../assets/images/kino5.jpg";
+import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from "react-bootstrap";
+// import Kino1 from "../../assets/images/uzbekkino/rangsiztushlar.jpg";
+// import Kino2 from "../../assets/images/kino2.jpg";
+// import Kino3 from "../../assets/images/kino3.jpg";
+// import Kino4 from "../../assets/images/kino5.jpg";
+import BannerInFos from "../../datas/bannerInfos";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import PauseIcon from "@material-ui/icons/Pause";
 
 export default function Featured({ type, setGenre }) {
-  // const [content, setContent] = useState({});
-
-  // useEffect(() => {
-  //   const getRandomContent = async () => {
-  //     try {
-  //       const res = await axios.get(`/movies/random?type=${type}`, {
-  //         headers: {
-  //           token:
-  //             "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-  //         },
-  //       });
-  //       setContent(res.data[0]);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getRandomContent();
-  // }, [type]);
-
+  const [play, setPlay] = useState(false);
+  const [playMovie, setPlayMovie] = useState(true);
+  const [movieId, setMovieId] = useState(null);
+  const videoRef = useRef();
+  const movie = movieId
+    ? BannerInFos.filter((item) => item.id === movieId)[0]
+    : BannerInFos[0];
+const truncate=(str,max)=>{
+  return str.length> max
+  ? <p>{str.slice(0,max)}...</p>
+ :<p>{str}</p>;
+}
   return (
     <div className="banner">
-      <Carousel nextLabel="" prevLabel="" fade={true} pause={false}>
-        <Carousel.Item interval={3000}>
-          <img style={{height:"400px"}}
-          className="d-block w-90" src={Kino1} alt="First slide" />
-          {/* <Carousel.Caption>
-            <div className="buttons">
-              <button className="button">
-                <span> Trailerni ko'rish</span>
-              </button>
-              <button className="button">
-                <span>Filmni tomosha qilish</span>
-              </button>
-            </div>
-          </Carousel.Caption> */}
-        </Carousel.Item>
-        <Carousel.Item interval={3000}>
-          <img 
-          style={{height:"400px"}}
-          className="d-block w-100" src={Kino2} alt="Second slide" />
-          {/* <Carousel.Caption  >
-            <div className="buttons">
-            <button className="button">
-              <span> Trailerni ko'rish</span>
-            </button>
-            <button className="button">
-              <span>Filmni tomosha qilish</span>
-            </button>
-            </div>
-          </Carousel.Caption> */}
-        </Carousel.Item>
-        <Carousel.Item interval={3000}>
-          <img 
-          style={{height:"400px"}}
-          className="d-block w-100" src={Kino3} alt="Third slide" />
-        </Carousel.Item>
-        <Carousel.Item interval={3000}>
-          <img 
-          style={{height:"400px"}}
-          className="d-block w-100" src={Kino4} alt="Fourth slide" />
-        </Carousel.Item>
-      </Carousel>
-      {/* <Carousel 
-           autoplay={true}
-           interval={2000}
-           swipeable
-           >
-                <div>
-                    <img src={Photo}/>
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src={Photo} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src={Photo} />
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel> */}
-    </div>
-    //   <div className="banner"
-    //  style={{backgroundImage:
-    // `url("${base_image_URL}${movie?.backdrop_path}")`
-    //   backgroundSize:"cover",height:"400px",
-    //   backgroundPosition:"center center"}}>
+      {!play ? (
+        <Carousel
+          autoPlay
+          interval={4000}
+          // swipeable
+          infiniteLoop
+          showThumbs={false}
+          showStatus={false}
+        >
+          {BannerInFos.map((item, index) => {
+            return (
+              <div key={index} style={{ position: "relative" }}>
+                <img
+                  draggable={false}
+                  alt="text"
+                  style={{ width: "100%", height: "500px" }}
+                  src={item.image}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "10%",
+                    bottom: "30%",
+                    width: "400px",
+                    color: "white",
+                    transform: " translateX(-50%)",
+                    fontSize: "20px",
+                    marginLeft: "200px",
+                    textAlign: "left",
+                  }}
+                >
+                  <h1>{item.name}</h1>
+                 
+                  <p style={{ fontSize: "14px",fontWeight:"bold" }}>{truncate(item.desc,200)}</p>
 
-    //       <div className="info">
-    //       <h1>{movie?.title || movie?.name || movie?.original_title}</h1>
-    //       <div className="banner_buttons">
-    // <button>
-    // <PlayArrow />
+                  
+                  <button
+                    className="btn_play"
+                    style={{
+                      cursor: "pointer",
+                      fontSize: "15px",
+                      color:"white",
+                      marginRight:"30px",
+                      padding:"8px 15px",
 
-    //    <span>Play trailer</span>
-    //     </button>
-    // <button>
-    // <InfoOutlined/>
+                    }}
+                    onClick={() => {
+                      setPlay(true);
+                      setMovieId(item.id);
+                    }}
+                  >
+                    Trailerni ko'rish
+                  </button>
+                  <button 
+                      style={{
+                        cursor: "pointer",
+                        fontSize: "15px",
+                        color:"white",
+                        padding:"8px 15px",
+  
+                      }}
+                  className="btn_play">add playlist</button>
+                </div>
+              </div>
+            );
+          })}
+        </Carousel>
+      ) : (
+        <div style={{
+    
+        }}>
+      
+          {!playMovie ? (
+            <PlayArrowIcon
+            className="icons"
+            style={{ fontSize: "65px", color: "white" }}
+              onClick={() => {
+                setPlayMovie(true);
+                videoRef.current.play();
+              }}
+            />
+          ) : (
+            <PauseIcon
+              className="icons"
+              style={{ fontSize: "65px", color: "white" }}
 
-    //    <span>Filmni tomosha qilish</span>
-    //     </button>
-    //       </div>
-    //       <p>{truncate(movie.overview,200)}</p>
-    //       <div className="fade_bottom"></div>
-    //       </div>
-    // </div>
+              onClick={() => {
+                setPlayMovie(false);
+                videoRef.current.pause();
+              }}
+            />
+        
+          )}
+              <video
+                  width="100%"
+                  height="500px"
+                  progress
+            // muted
+            autoPlay={playMovie}
+            src={movie.trailer}
+            ref={videoRef}
+          />
+        </div>
+      )}
+    </div>    
   );
 }

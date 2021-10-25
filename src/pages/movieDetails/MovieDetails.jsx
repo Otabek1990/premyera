@@ -67,8 +67,10 @@ export default function Movie() {
           />
         )}
         <video
-          width="100%"
-          height="120%"
+        // style={{objectFit:"fill"}}
+        width="100%"
+        height="500px"
+          loop
           src={Video}
           autoPlay={false}
           progress

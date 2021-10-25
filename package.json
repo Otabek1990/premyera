@@ -15,6 +15,7 @@
     "framer-motion": "^4.1.17",
     "gh-pages": "^3.2.3",
     "movie-trailer": "^2.1.0",
+    "nanoid": "^3.1.30",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",

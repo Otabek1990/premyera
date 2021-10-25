@@ -42,11 +42,11 @@ const Home = ({ type }) => {
   // }, [type, genre]);
   return (
     <div className="home">
-      <div style={{height:"300px"}}>
+      <div style={{height:"380px"}}>
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
       </div>
-      <div style={{marginTop:"120px"}}>
+      <div style={{marginTop:"140px"}}>
       <List genre={"Uzbekcha filmlar"} items={uzbMovies} />
       <List genre={"Uzbekcha seriallar"} items={uzbSerials} />
       <List genre={"Bollar uchun filmlar"} items={kidsMovies} />
